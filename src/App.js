@@ -19,14 +19,10 @@ class App extends Component {
 	}
 
 	submit() {
-		console.log(this.state.name);
-		console.log(this.state.date);
 		this.setState({
 			nameValid: this.state.name ? true : false,
 			dateValid: this.state.date ? true : false
 		}, () => {
-			console.log(this.state.nameValid);
-			console.log(this.state.dateValid);
 		});
 	}
 	render() {
@@ -36,16 +32,18 @@ class App extends Component {
 					<img slot="img" alt="Zooplus logo" src="assets/logo.png"/>
 				</zoo-header>
 				<form style={{maxWidth: 768 + 'px', margin: 0 + ' auto'}}>
-					<zoo-select inputerrormsg="Name is required" labeltext="Name" valid={this.state.nameValid ? 1 : ''}>
-						<select slot="selectelement">
+					<zoo-select inputerrormsg="Name is required" invalid={this.state.nameValid ? null : 1}>
+						<select id="select-id1" slot="selectelement">
 							{this.state.options.map(option => <option value={option.id} key={option}> { option.firstName } { option.lastName } </option>)}
 						</select>
+						<label for="select-id1" slot="selectlabel">Name</label>
 					</zoo-select>
-					<zoo-input labeltext="Input date field" inputerrormsg="Invalid value" infotext="Information text" valid={this.state.dateValid ? 1 : ''}>
-						<input type="date" placeholder="Placeholder" slot="inputelement" value={this.state.name}/>
+					<zoo-input inputerrormsg="Invalid value" infotext="Information text" invalid={this.state.dateValid ? null : 1}>
+						<input id="input-id1" type="date" placeholder="Placeholder" slot="inputelement" value={this.state.name}/>
+						<label for="input-id1" slot="inputlabel">Input date field</label>
 					</zoo-input>
 					<zoo-button class="submit-button" size="small" onClick={this.submit.bind(this)}>
-						<span slot="buttoncontent">Submit</span>
+						<button type="button">Submit</button>
 					</zoo-button>
 				</form>
 			</div>

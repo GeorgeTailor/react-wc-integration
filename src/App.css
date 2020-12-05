@@ -25,5 +25,6 @@
 	--info-ultralight: #ECF5FA;
 	--info-mid: #459FD0;
 	--warning-ultralight: #FDE8E9;
-	--warning-mid: #ED1C24;
+  --warning-mid: #ED1C24;
+  --additional-elements-display: flex;
 }
