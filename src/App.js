@@ -32,7 +32,9 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<zoo-header imgsrc="assets/logo.png" headertext="Zoo web components in React"></zoo-header>
+				<zoo-header headertext="Zoo web components in React">
+					<img slot="img" alt="Zooplus logo" src="assets/logo.png"/>
+				</zoo-header>
 				<form style={{maxWidth: 768 + 'px', margin: 0 + ' auto'}}>
 					<zoo-select inputerrormsg="Name is required" labeltext="Name" valid={this.state.nameValid ? 1 : ''}>
 						<select slot="selectelement">
