@@ -5,7 +5,7 @@
 1. Run `npm i @zooplus/zoo-web-components --save` to install the package.
 2. Modify you main `index.js` and add the following line: `import "@zooplus/zoo-web-components";`
 3. Use web components in your application:
-```HTML
+```JSX
 render() {
 	return (
 		<div className="App">
