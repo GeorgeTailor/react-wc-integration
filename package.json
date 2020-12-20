@@ -6,7 +6,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
-    "@zooplus/zoo-web-components": "7.4.1"
+    "@zooplus/zoo-web-components": "8.1.6"
   },
   "scripts": {
     "start": "react-scripts start",

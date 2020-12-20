@@ -12,38 +12,38 @@ class App extends Component {
 				}
 			],
 			name: undefined,
-			date: undefined,
-			nameValid: true,
-			dateValid: true
+			date: undefined
 		};
 	}
 
-	submit() {
-		this.setState({
-			nameValid: this.state.name ? true : false,
-			dateValid: this.state.date ? true : false
-		}, () => {
-		});
+	submit(e) {
+		e.target.checkValidity();
+		e.preventDefault();
 	}
 	render() {
 		return (
 			<div className="App">
-				<zoo-header headertext="Zoo web components in React">
+				<zoo-header>
+					<h1 slot="headertext">Zoo web components in React</h1>
 					<img slot="img" alt="Zooplus logo" src="assets/logo.png"/>
 				</zoo-header>
-				<form style={{maxWidth: 768 + 'px', margin: 0 + ' auto'}}>
-					<zoo-select inputerrormsg="Name is required" invalid={this.state.nameValid ? null : 1}>
-						<select id="select-id1" slot="selectelement">
+				<form style={{maxWidth: 768 + 'px', margin: 0 + ' auto'}} noValidate onSubmit={this.submit.bind(this)}>
+					<zoo-select>
+						<label htmlFor="select-id1" slot="label">Name</label>
+						<select id="select-id1" slot="select" required defaultValue="">
+							<option disabled value="">Please choose an option</option>
 							{this.state.options.map(option => <option value={option.id} key={option}> { option.firstName } { option.lastName } </option>)}
 						</select>
-						<label for="select-id1" slot="selectlabel">Name</label>
+						<span slot="error">Name is required</span>
 					</zoo-select>
-					<zoo-input inputerrormsg="Invalid value" infotext="Information text" invalid={this.state.dateValid ? null : 1}>
-						<input id="input-id1" type="date" placeholder="Placeholder" slot="inputelement" value={this.state.name}/>
-						<label for="input-id1" slot="inputlabel">Input date field</label>
+					<zoo-input>
+						<label htmlFor="input-id1" slot="label">Input date field</label>
+						<input id="input-id1" type="date" placeholder="Placeholder" slot="input" value={this.state.name} required/>
+						<span slot="info">Information text</span>
+						<span slot="error">Invalid value</span>
 					</zoo-input>
-					<zoo-button class="submit-button" size="small" onClick={this.submit.bind(this)}>
-						<button type="button">Submit</button>
+					<zoo-button>
+						<button type="submit">Submit</button>
 					</zoo-button>
 				</form>
 			</div>
