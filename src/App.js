@@ -38,7 +38,7 @@ class App extends Component {
 					</zoo-select>
 					<zoo-input>
 						<label htmlFor="input-id1" slot="label">Input date field</label>
-						<input id="input-id1" type="date" placeholder="Placeholder" slot="input" value={this.state.name} required/>
+						<input id="input-id1" type="date" slot="input" value={this.state.name} required/>
 						<span slot="info">Information text</span>
 						<span slot="error">Invalid value</span>
 					</zoo-input>
